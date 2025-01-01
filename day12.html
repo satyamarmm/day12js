@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<title>TASK - 30-10-2024 Event Bubbling and Trickling</title>
+<style>
+  .parent{
+    text-align: center;
+    height: 300px;
+    width: 800px;
+    border: black 1px solid;
+  }
+  .child{ 
+    margin-left: 100px;
+    margin-top: 20px;
+    text-align: center;
+    height: 100px;
+    width: 500px;
+    border: black 1px solid;
+  }
+  .sc{
+    height: 50px;
+    width: 100px;
+    text-align: center;
+    margin-left: 25px;
+    border: black solid 1px;
+  }
+</style>
+</head>
+<body>
+<!-- <div onclick="p()" class="parent">parent
+    <div onclick="c1()" class="child 1">child 1</div> <br>
+    <div  onclick="c2()" class="child 2">  child 2</div>   
+</div> -->
+
+<!-- <div onclick="alert('its an parent ele')" class="parent">parent
+    <div onclick="alert('an child 1 ele')" class="child 1">child 1</div> <br>
+    <div  onclick="alert('an child 2 ele')" class="child 2">  child 2
+        <div class="sc" onclick="alert('an small child ele')">
+            small child
+        </div>
+    </div>
+</div> -->
+
+<div class="parent">parent
+    <!-- <div  class="child 1">child 1</div> <br> -->
+    <div   class="child">  child 1
+        <div class="sc">small child</div>
+    </div>   
+</div>
+
+<script>
+let parent=document.querySelector(".parent")
+let child1=document.querySelector(".child")
+let sc=document.querySelector(".sc")
+
+parent.addEventListener('click',()=>{
+    setTimeout(() => {
+    parent.style.backgroundColor="yellow"   
+    alert('its an parent tag')
+    }, 2000);},false )
+child1.addEventListener('click',()=>
+    alert('its an child tag'), false
+)
+sc.addEventListener('click',()=>
+    alert('its an small child tag'),false
+)
+
+  
+</script>
+
+</body>
+</html>
